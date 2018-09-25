@@ -1,29 +1,52 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+
+    <layout-main>
+
+      <template slot="header">
+
+        <smart-nav :nav-items="nav"
+                   nav-title="Admin"
+                   usr="JMST225">
+        </smart-nav>
+
+      </template>
+
+      <template slot="content">
+
+        <router-view></router-view>
+
+      </template>
+
+      <template slot="footer">
+
+        <smart-footer></smart-footer>
+
+      </template>
+
+    </layout-main>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+import { config } from "../app.config.js";
+
+import { SmartNav, LayoutMain, SmartFooter } from "smart-x-vue";
+
+export default {
+  name: "app",
+  components: {
+    SmartNav,
+    SmartFooter,
+    LayoutMain
+  },
+  data() {
+    return {
+      nav: config.nav
+    };
   }
-}
+};
+</script>
+
+<style lang="scss">
 </style>
