@@ -1,33 +1,35 @@
 <template>
-    <div>
-        <smart-search route-name="RegionCreate"
-                      method="get"
-                      form-title="Region">
-        </smart-search>
-        <smart-table :table-data="getRegions"
-                     default-context="region"
-                     v-if="getRegions.length > 0"
-                     :sort-method="getDataSortedBy"
-                     :props-to-link="{}">
-        </smart-table>
-        <p v-else>No regions yet. Let's add one!</p>
-    </div>
+  <div>
+    <stack-searchable-table route-name="RegionCreate"
+                            form-title="Region"
+                            :search-model="searchModel"
+                            :table-data="getRegions"
+                            default-context="region">
+    </stack-searchable-table>
+  </div>
 </template>
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-import { SmartSearch, SmartTable } from "smart-x-vue";
+import { StackSearchableTable } from "smart-x-vue";
 
 const { mapGetters } = createNamespacedHelpers("regions");
 
 export default {
   components: {
-    SmartSearch,
-    SmartTable
+    StackSearchableTable
   },
   name: "region",
   computed: {
-    ...mapGetters(["getRegions", "getDataSortedBy"])
+    ...mapGetters(["getRegions"])
+  },
+  data() {
+    return {
+      searchModel: {
+        name: String,
+        code: String
+      }
+    };
   }
 };
 </script>

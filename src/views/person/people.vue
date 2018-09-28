@@ -1,34 +1,27 @@
 <template>
     <div>
-        <smart-search class="layout-main--search"
-                      route-name="PeopleCreate"
-                      form-title="People"
-                      method="get">
-        </smart-search>
-        <smart-table v-if="getPeople.length > 0"
-                     default-context="person"
-                     :sortMethod="this.getDataSortedBy"
-                     :table-data="getPeople"
-                     :props-to-link="propsToLink">
-        </smart-table>
-        <p v-else>Nothing to see here!</p>
+        <stack-searchable-table form-title="People"
+                                route-name="PeopleCreate"
+                                :table-data="getPeople"
+                                :props-to-link="propsToLink"
+                                :search-model="searchModel"
+                                default-context="person">
+        </stack-searchable-table>
     </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import { createLinkToRecord } from "smart-x-vue";
-
-import { SmartTable, SmartSearch } from "smart-x-vue";
+import { StackSearchableTable } from "smart-x-vue";
 
 export default {
   name: "people",
   components: {
-    SmartTable,
-    SmartSearch
+    StackSearchableTable
   },
   computed: {
-    ...mapGetters("people", ["getPeople", "getDataSortedBy"]),
+    ...mapGetters("people", ["getPeople"]),
     ...mapGetters("regions", ["getRegions"]),
     propsToLink() {
       return {
@@ -41,6 +34,15 @@ export default {
         })
       };
     }
+  },
+  data() {
+    return {
+      searchModel: {
+        name: String,
+        age: Number,
+        birthday: Date
+      }
+    };
   }
 };
 </script>
