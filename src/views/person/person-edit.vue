@@ -8,14 +8,13 @@
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-import { SmartForm } from "smart-x-vue";
 
 const { mapGetters, mapActions } = createNamespacedHelpers("people");
 
 export default {
   name: "person-edit",
   components: {
-    SmartForm
+    SmartForm: () => import("smart-x-vue/src/components/smart-form")
   },
   computed: {
     ...mapGetters(["getPersonSingle"])

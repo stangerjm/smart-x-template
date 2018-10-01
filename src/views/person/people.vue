@@ -13,12 +13,12 @@
 <script>
 import { mapGetters } from "vuex";
 import { createLinkToRecord } from "smart-x-vue";
-import { StackSearchableTable } from "smart-x-vue";
 
 export default {
   name: "people",
   components: {
-    StackSearchableTable
+    StackSearchableTable: () =>
+      import("smart-x-vue/src/components/stack-searchableTable")
   },
   computed: {
     ...mapGetters("people", ["getPeople"]),

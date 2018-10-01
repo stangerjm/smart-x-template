@@ -6,13 +6,12 @@
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-import { SmartForm } from "smart-x-vue";
 
 const { mapActions } = createNamespacedHelpers("regions");
 
 export default {
   components: {
-    SmartForm
+    SmartForm: () => import("smart-x-vue/src/components/smart-form")
   },
   name: "region-create",
   data() {

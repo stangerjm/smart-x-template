@@ -9,13 +9,12 @@
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-import { SmartDetails } from "smart-x-vue";
 
 const { mapGetters } = createNamespacedHelpers("regions");
 
 export default {
   components: {
-    SmartDetails
+    SmartDetails: () => import("smart-x-vue/src/components/smart-details")
   },
   name: "region-details",
   computed: {

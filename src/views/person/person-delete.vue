@@ -8,15 +8,14 @@
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-import { SmartDetails, BitBtn } from "smart-x-vue";
 
 const { mapGetters, mapActions } = createNamespacedHelpers("people");
 
 export default {
   name: "person-delete",
   components: {
-    SmartDetails,
-    BitBtn
+    SmartDetails: () => import("smart-x-vue/src/components/smart-details"),
+    BitBtn: () => import("smart-x-vue/src/components/bit-btn")
   },
   computed: {
     ...mapGetters(["getPersonSingle"]),

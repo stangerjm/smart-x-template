@@ -3,8 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-require("smart-x-vue/dist/smart-x-vue.css");
 require("smart-x-vue/src/styles/sass/base/_base.scss");
+require("smart-x-vue");
 
 Vue.config.productionTip = false;
 

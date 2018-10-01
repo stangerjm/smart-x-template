@@ -50,7 +50,7 @@ export default new Router({
     {
       path: "/region/create",
       name: "RegionCreate",
-      component: import("../views/region/region-create")
+      component: () => import("../views/region/region-create")
     },
     {
       path: "/region/edit/:id",

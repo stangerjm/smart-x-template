@@ -4,37 +4,18 @@
                        v-if="person"
                        :detail-data="person">
         </smart-details>
-        <!--<smart-tabs class="layout-subsection&#45;&#45;footer">-->
-          <!--<template v-for="(person, title) in this.friends">-->
-            <!--<bit-tab slot="tab-list">{{title | toTitleCase }}</bit-tab>-->
-            <!--<block-tab-content slot="tab-items">-->
-              <!--<smart-table :table-data="person.friends" default-context="person"></smart-table>-->
-            <!--</block-tab-content>-->
-          <!--</template>-->
-        <!--</smart-tabs>-->
     </div>
 </template>
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-import {
-  BlockTabContent,
-  SmartTable,
-  BitTab,
-  SmartDetails,
-  SmartTabs
-} from "smart-x-vue";
 
 const { mapGetters } = createNamespacedHelpers("people");
 
 export default {
   name: "person-details",
   components: {
-    BlockTabContent,
-    SmartTable,
-    BitTab,
-    SmartDetails,
-    SmartTabs
+    SmartDetails: () => import("smart-x-vue/src/components/smart-details")
   },
   data() {
     return {

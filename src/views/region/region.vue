@@ -11,13 +11,13 @@
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-import { StackSearchableTable } from "smart-x-vue";
 
 const { mapGetters } = createNamespacedHelpers("regions");
 
 export default {
   components: {
-    StackSearchableTable
+    StackSearchableTable: () =>
+      import("smart-x-vue/src/components/stack-searchableTable")
   },
   name: "region",
   computed: {

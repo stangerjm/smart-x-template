@@ -31,14 +31,12 @@
 <script>
 import { config } from "../app.config.js";
 
-import { SmartNav, LayoutMain, SmartFooter } from "smart-x-vue";
-
 export default {
   name: "app",
   components: {
-    SmartNav,
-    SmartFooter,
-    LayoutMain
+    SmartNav: () => import("smart-x-vue/src/components/smart-nav"),
+    SmartFooter: () => import("smart-x-vue/src/components/smart-footer"),
+    LayoutMain: () => import("smart-x-vue/src/components/layout-main")
   },
   data() {
     return {
