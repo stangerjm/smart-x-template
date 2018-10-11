@@ -15,5 +15,6 @@ export const config = {
     { linkTitle: "Contact", linkPath: "#" }
   ],
   dateFormat: "MM-DD-YYYY",
-  flatpickrFormat: "m-d-Y"
+  flatpickrFormat: "m-d-Y",
+  apiUrl: "http://localhost:8081"
 };
